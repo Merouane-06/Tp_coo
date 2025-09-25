@@ -1,4 +1,4 @@
-from django.db import admin
+from django.contrib import admin
 from . import models
 
 # Register your models here.
@@ -8,7 +8,6 @@ admin.site.register(models.Metier)
 admin.site.register(models.Localisation)
 admin.site.register(models.Energie)
 admin.site.register(models.DebitEnergie)
-admin.site.register(models.MatierePremiere)
 admin.site.register(models.ApprovisionnementMatierePremiere)
 admin.site.register(models.Local)
 admin.site.register(models.Produit)

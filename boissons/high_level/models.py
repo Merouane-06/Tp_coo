@@ -31,8 +31,8 @@ class Meta:
 
 class Localisation(models.Model):
     nom = models.CharField(max_length=100)
-    taxes = stock = models.IntegerField()
-    prix_m2 = stock = models.IntegerField()
+    taxes = models.IntegerField()
+    prix_m2 = models.IntegerField()
 
 
 class Energie(models.Model):
@@ -70,7 +70,7 @@ class Local(models.Model):
     surface = models.IntegerField()
 
 
-class Produit(models.Moedl):
+class Produit(models.Model):
     nom = models.CharField(max_length=100)
     prix_de_ventre = models.IntegerField()
     quantite = models.IntegerField()
