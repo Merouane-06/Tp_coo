@@ -10,11 +10,17 @@ class Metier(models.Model):
     nom = models.CharField(max_length=100)
     remuneration = models.IntegerField()
 
+    def __str__(self):
+        return self.nom
+
 
 class MatierePremiere(models.Model):
     nom = models.CharField(max_length=100)
     stock = models.IntegerField()
     emprise = models.IntegerField()
+
+    def __str__(self):
+        return self.nom
 
 
 class QuantiteMatierePremiere(models.Model):
@@ -23,6 +29,9 @@ class QuantiteMatierePremiere(models.Model):
         MatierePremiere,
         on_delete=models.PROTECT,
     )
+
+    def __str__(self):
+        return self.nom
 
 
 class Meta:
@@ -34,6 +43,9 @@ class Localisation(models.Model):
     taxes = models.IntegerField()
     prix_m2 = models.IntegerField()
 
+    def __str__(self):
+        return self.nom
+
 
 class Energie(models.Model):
     nom = models.CharField(max_length=100)
@@ -43,6 +55,9 @@ class Energie(models.Model):
         on_delete=models.PROTECT,
     )
 
+    def __str__(self):
+        return self.nom
+
 
 class DebitEnergie(models.Model):
     debit = models.IntegerField()
@@ -50,6 +65,9 @@ class DebitEnergie(models.Model):
         Energie,
         on_delete=models.PROTECT,
     )
+
+    def __str__(self):
+        return self.nom
 
 
 class ApprovisionnementMatierePremiere(QuantiteMatierePremiere):
@@ -60,6 +78,9 @@ class ApprovisionnementMatierePremiere(QuantiteMatierePremiere):
     prix_unitaire = models.IntegerField()
     delais = models.IntegerField()
 
+    def __str__(self):
+        return self.nom
+
 
 class Local(models.Model):
     nom = models.CharField(max_length=100)
@@ -68,6 +89,9 @@ class Local(models.Model):
         on_delete=models.PROTECT,
     )
     surface = models.IntegerField()
+
+    def __str__(self):
+        return self.nom
 
 
 class Produit(models.Model):
@@ -80,9 +104,15 @@ class Produit(models.Model):
         on_delete=models.PROTECT,
     )
 
+    def __str__(self):
+        return self.nom
+
 
 class UtilisationMatierePremiere(models.Model):
     pass
+
+    def __str__(self):
+        return self.nom
 
 
 class RessourceHumaine(models.Model):
@@ -91,6 +121,9 @@ class RessourceHumaine(models.Model):
         on_delete=models.PROTECT,
     )
     quantite = models.IntegerField()
+
+    def __str__(self):
+        return self.nom
 
 
 class Machine(models.Model):
@@ -110,6 +143,9 @@ class Machine(models.Model):
         on_delete=models.PROTECT,
     )
 
+    def __str__(self):
+        return self.nom
+
 
 class Fabrication(models.Model):
     produit = models.ForeignKey(
@@ -119,3 +155,6 @@ class Fabrication(models.Model):
     utilisation_matiere_premiere = models.ManyToManyField(UtilisationMatierePremiere)
     machines = models.ManyToManyField(Machine)
     ressources_humaines = models.ManyToManyField(RessourceHumaine)
+
+    def __str__(self):
+        return self.nom
